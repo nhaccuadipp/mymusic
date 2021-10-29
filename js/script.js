@@ -10,7 +10,11 @@ progressArea = wrapper.querySelector(".progress-area"),
 progressBar = progressArea.querySelector(".progress-bar"),
 musicList = wrapper.querySelector(".music-list"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
-closemoreMusic = musicList.querySelector("#close");
+closemoreMusic = musicList.querySelector("#close"),
+VolumeUpBtn = document.querySelector('.volume-max'),
+VolumeDownBtn = document.querySelector('.volume-half'),
+recentVolume = document.querySelector('#volume');
+const remVolume = 0; 
 
 let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 isMusicPaused = true;
@@ -232,3 +236,32 @@ function clicked(element){
   playMusic();
   playingSong();
 }
+
+function Volume_change(){
+  mainAudio.volume = recentVolume.value / 100; 
+}
+
+
+function VolumeMute(){
+    mainAudio.volume = 0;
+    VolumeUpBtn.classList.add('dis-none');
+    VolumeDownBtn.classList.remove('dis-none');
+    recentVolume.value = 0;
+}
+
+function VolumeUp(){
+  mainAudio.volume = 1;
+  VolumeUpBtn.classList.remove('dis-none');
+  VolumeDownBtn.classList.add('dis-none');
+  recentVolume.value = mainAudio.volume*100;
+}
+
+VolumeUpBtn.addEventListener('click',VolumeMute);
+VolumeDownBtn.addEventListener('click',VolumeUp);
+
+
+
+
+
+
+
