@@ -10,10 +10,10 @@
   margin: 0;
 }
 :root{
-  --pink: #d190a7;
-  --violet: #9f6ea3;
+  --pink: #8988c2;
+  --violet: #2b7048;
   --lightblack: #515C6F;
-  --white: #ffffff;
+  --white: #e9e9e9;
   --darkwhite: #cecaca;
   --pinkshadow: #ffcbdd;
   --lightbshadow: rgba(0,0,0,0.15);
@@ -21,7 +21,7 @@
 body{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   min-height: 100vh;
   background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
 }
@@ -242,4 +242,8 @@ ul li .audio-duration{
 ul li.playing{
   pointer-events: none;
   color: var(--violet);
+}
+
+.lyrics{
+  display: none;
 }
