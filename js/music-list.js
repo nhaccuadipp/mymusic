@@ -11,7 +11,7 @@
 
 let allMusic = [
   {
-    name: "Muộn rồi mà sao còn",
+    name: "Muộn Rồi Mà Sao Còn",
     artist: "Sơn Tùng M-TP",
     img: "music-1",
     src: "music-1"
