@@ -284,10 +284,10 @@ function Volume_change(){
 }
 
 VolumeDownBtn.addEventListener('click',()=>{
-  mainAudio.volume = 1;
   VolumeUpBtn.classList.remove('dis-none');
   VolumeDownBtn.classList.add('dis-none');
   recentVolume.value = remVolume*100;
+  mainAudio.volume = remVolume;
 });
 
 
