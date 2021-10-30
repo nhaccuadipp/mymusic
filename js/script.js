@@ -242,27 +242,34 @@ function Volume_change(){
 }
 
 
-function VolumeMute(){
-    mainAudio.volume = 0;
-    VolumeUpBtn.classList.add('dis-none');
-    VolumeDownBtn.classList.remove('dis-none');
-    recentVolume.value = 0;
-}
+// function VolumeMute(){
+//     mainAudio.volume = 0;
+//     VolumeUpBtn.classList.add('dis-none');
+//     VolumeDownBtn.classList.remove('dis-none');
+//     recentVolume.value = 0;
+// }
 
-function VolumeUp(){
+// function VolumeUp(){
+//   mainAudio.volume = 1;
+//   VolumeUpBtn.classList.remove('dis-none');
+//   VolumeDownBtn.classList.add('dis-none');
+//   recentVolume.value = mainAudio.volume*100;
+// }
+
+  VolumeUpBtn.addEventListener('click',()=>{
+  mainAudio.volume = 0;
+  VolumeUpBtn.classList.add('dis-none');
+  VolumeDownBtn.classList.remove('dis-none');
+  recentVolume.value = 0;
+});
+VolumeDownBtn.addEventListener('click',()=>{
   mainAudio.volume = 1;
   VolumeUpBtn.classList.remove('dis-none');
   VolumeDownBtn.classList.add('dis-none');
   recentVolume.value = mainAudio.volume*100;
-}
+});
 
-VolumeUpBtn.addEventListener('click',VolumeMute);
-VolumeDownBtn.addEventListener('click',VolumeUp);
 
-if(!!window.performance && window.performance.navigation.type === 2) {
-    console.log('Reloading');
-    window.location.reload();
-}
 
 
 
