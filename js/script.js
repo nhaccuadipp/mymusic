@@ -254,9 +254,6 @@ function clicked(element){
   playingSong();
 }
 
-function Volume_change(){
-  mainAudio.volume = recentVolume.value / 100; 
-}
 
 
 // function VolumeMute(){
@@ -273,17 +270,24 @@ function Volume_change(){
 //   recentVolume.value = mainAudio.volume*100;
 // }
 
+var remVolume = mainAudio.volume;
+
   VolumeUpBtn.addEventListener('click',()=>{
   mainAudio.volume = 0;
   VolumeUpBtn.classList.add('dis-none');
   VolumeDownBtn.classList.remove('dis-none');
   recentVolume.value = 0;
 });
+function Volume_change(){
+  mainAudio.volume = recentVolume.value / 100; 
+  remVolume = mainAudio.volume;
+}
+
 VolumeDownBtn.addEventListener('click',()=>{
   mainAudio.volume = 1;
   VolumeUpBtn.classList.remove('dis-none');
   VolumeDownBtn.classList.add('dis-none');
-  recentVolume.value = mainAudio.volume*100;
+  recentVolume.value = remVolume*100;
 });
 
 
