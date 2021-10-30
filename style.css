@@ -66,9 +66,8 @@ body{
   height: 256px;
   overflow: hidden;
   margin-top: 25px;
-  border-radius: 15px;
+  border-radius: 50%;
   box-shadow: 0px 6px 12px var(--lightbshadow);
-  display: flex;
 }
 .img-area img{
   width: 100%;

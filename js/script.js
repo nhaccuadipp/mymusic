@@ -12,12 +12,23 @@ musicList = wrapper.querySelector(".music-list"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
 closemoreMusic = musicList.querySelector("#close"),
 VolumeUpBtn = document.querySelector('.volume-max'),
-VolumeDownBtn = document.querySelector('.volume-half'),
-recentVolume = document.querySelector('#volume');
-const remVolume = 0; 
+VolumeDownBtn = document.querySelector('.volume-mute'),
+recentVolume = document.querySelector('#volume'),
+songLyrics = document.querySelector('#song-lyrics');
+
 
 let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 isMusicPaused = true;
+
+
+const imgRotate =  musicImg.animate([
+  { transform: 'rotate(360deg)' }
+],{ 
+  duration: 20000,
+  iterations: Infinity
+})
+
+imgRotate.pause();
 
 window.addEventListener("load", ()=>{
   loadMusic(musicIndex);
@@ -36,6 +47,7 @@ function playMusic(){
   wrapper.classList.add("paused");
   playPauseBtn.querySelector("i").innerText = "pause";
   mainAudio.play();
+  imgRotate.play();
 }
 
 //pause music function
@@ -43,6 +55,7 @@ function pauseMusic(){
   wrapper.classList.remove("paused");
   playPauseBtn.querySelector("i").innerText = "play_arrow";
   mainAudio.pause();
+  imgRotate.pause();
 }
 
 //prev music function
@@ -52,7 +65,7 @@ function prevMusic(){
   musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
   loadMusic(musicIndex);
   playMusic();
-  playingSong(); 
+  playingSong();
 }
 
 //next music function
@@ -73,6 +86,8 @@ playPauseBtn.addEventListener("click", ()=>{
   playingSong();
 });
 
+
+
 //prev music button event
 prevBtn.addEventListener("click", ()=>{
   prevMusic();
@@ -83,12 +98,14 @@ nextBtn.addEventListener("click", ()=>{
   nextMusic();
 });
 
+
 // update progress bar width according to music current time
 mainAudio.addEventListener("timeupdate", (e)=>{
   const currentTime = e.target.currentTime; //getting playing song currentTime
   const duration = e.target.duration; //getting playing song total duration
   let progressWidth = (currentTime / duration) * 100;
   progressBar.style.width = `${progressWidth}%`;
+  // currentRotate = currentTime * 18;
 
   let musicCurrentTime = wrapper.querySelector(".current-time"),
   musicDuartion = wrapper.querySelector(".max-duration");
@@ -268,8 +285,6 @@ VolumeDownBtn.addEventListener('click',()=>{
   VolumeDownBtn.classList.add('dis-none');
   recentVolume.value = mainAudio.volume*100;
 });
-
-
 
 
 

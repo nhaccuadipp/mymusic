@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="icon" href="/images/avatar1.jpg" style="border-radius: 10px;" type="image/x-icon">
+  <link rel="icon" href="https://i.pinimg.com/736x/b9/c8/4c/b9c84c956cf45798d21477ec889627b8.jpg" style="border-radius: 10px;" type="image/x-icon">
 </head>
 <body>
   <div class="wrapper">
@@ -18,7 +18,7 @@
       <i class="material-icons">more_horiz</i>
     </div>
     <div class="img-area">
-      <img src="" alt="">
+      <img src="" alt="" class="imgThumb">
     </div>
     <div class="song-details">
       <p class="name"></p>
@@ -56,13 +56,13 @@
     </div>
     <div class="volume">
       <i  class="material-icons volume-max">volume_up</i>
-      <i  class="material-icons volume-half dis-none">volume_off</i>
+      <i  class="material-icons volume-mute dis-none">volume_off</i>
       <input id="volume" class="volume-bar" type="range" min="0" max="100" value="100" onchange="Volume_change()">
     </div>
   </div>
 
   <div class="lyrics">
-    
+    <p id="song-lyrics" src=""></p>
   </div>
 
   <script src="js/music-list.js"></script>

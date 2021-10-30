@@ -124,6 +124,12 @@ let allMusic = [
     img: "music-19",
     src: "music-19"
   },
+  {
+    name: "S.K.Y.Prox (Original Mix)",
+    artist: "HoaProx",
+    img: "music-20",
+    src: "music-20"
+  },
   // like this paste it and remember to give comma after ending of this bracket }
   // {
   //   name: "Here is the music name",
