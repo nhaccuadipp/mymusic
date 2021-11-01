@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -24,6 +24,24 @@ body{
   justify-content: space-around;
   min-height: 100vh;
   background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  border-width: 0;
+  border-style: solid;
+  border-radius: 6px;
+  background: #9e9696;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece {
+  width: 11px;
+  height: 11px;
 }
 
 .dis-none{
@@ -219,7 +237,7 @@ body{
   position: relative;
   z-index: 3;
   border-radius: 50%;
-  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);;
+  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
 }
 
 .music-list{
@@ -292,5 +310,15 @@ ul li.playing{
 }
 
 .lyrics{
-  display: none;
+  margin-top: 25px;
+  max-height: 256px;
+  min-height: 256px;
+  text-align: center;
+  font-size: 15px;
+  overflow: auto;
+  color: var(--lightblack);
+  font-weight: 600;
+  border-bottom: rgb(184, 184, 148) solid 1px;
+  border-top: rgb(184, 184, 148) solid 1px;
+  padding-top: 15px;
 }

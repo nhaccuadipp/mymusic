@@ -14,11 +14,15 @@ closemoreMusic = musicList.querySelector("#close"),
 VolumeUpBtn = document.querySelector('.volume-max'),
 VolumeDownBtn = document.querySelector('.volume-mute'),
 recentVolume = document.querySelector('#volume'),
-songLyrics = document.querySelector('#song-lyrics');
+songLyrics = document.querySelector('.lyrics'),
+lyricsBtn = document.querySelector('.lyrics-btn'),
+imgArea = document.querySelector('.img-area'),
+closeLyrics = document.querySelector('.lyrics-close-btn')
+;
 
 
 let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
-isMusicPaused = true;
+isMusicPaused = false;
 
 
 const imgRotate =  musicImg.animate([
@@ -40,6 +44,7 @@ function loadMusic(indexNumb){
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
   musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
   mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
+  songLyrics.innerHTML = allMusic[indexNumb  -1 ].lyrics  
 }
 
 //play music function
@@ -203,7 +208,7 @@ for (let i = 0; i < allMusic.length; i++) {
                   <span>${allMusic[i].name}</span>
                   <p>${allMusic[i].artist}</p>
                 </div>
-                <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
+                <span id="${allMusic[i].src}" class="audio-duration"></span>
                 <audio class="${allMusic[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>
               </li>`;
   ulTag.insertAdjacentHTML("beforeend", liTag); //inserting the li inside ul tag
@@ -255,21 +260,6 @@ function clicked(element){
 }
 
 
-
-// function VolumeMute(){
-//     mainAudio.volume = 0;
-//     VolumeUpBtn.classList.add('dis-none');
-//     VolumeDownBtn.classList.remove('dis-none');
-//     recentVolume.value = 0;
-// }
-
-// function VolumeUp(){
-//   mainAudio.volume = 1;
-//   VolumeUpBtn.classList.remove('dis-none');
-//   VolumeDownBtn.classList.add('dis-none');
-//   recentVolume.value = mainAudio.volume*100;
-// }
-
 var remVolume = mainAudio.volume;
 
   VolumeUpBtn.addEventListener('click',()=>{
@@ -289,6 +279,22 @@ VolumeDownBtn.addEventListener('click',()=>{
   recentVolume.value = remVolume*100;
   mainAudio.volume = remVolume;
 });
+
+lyricsBtn.addEventListener('click',()=>{
+  songLyrics.classList.remove('dis-none');
+  closeLyrics.classList.remove('dis-none');
+  lyricsBtn.classList.add('dis-none');
+  imgArea.classList.add('dis-none')
+})
+closeLyrics.addEventListener('click',()=>{
+  songLyrics.classList.add('dis-none');
+  lyricsBtn.classList.remove('dis-none');
+  imgArea.classList.remove('dis-none');
+
+  closeLyrics.classList.add('dis-none');
+})
+
+
 
 
 

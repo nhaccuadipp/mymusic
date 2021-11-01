@@ -27,4 +27,10 @@
     .audio-duration{
         display: none;
     }
+
+    .lyrics{
+        margin-top: 25px;
+        max-height: 250px;
+        min-height: 250px;
+    }
 }
