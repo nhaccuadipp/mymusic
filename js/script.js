@@ -285,13 +285,11 @@ lyricsBtn.addEventListener('click',()=>{
   closeLyrics.classList.remove('dis-none');
   lyricsBtn.classList.add('dis-none');
   imgArea.classList.add('dis-none');
-  imgRotate.pause()
 })
 closeLyrics.addEventListener('click',()=>{
   songLyrics.classList.add('dis-none');
   lyricsBtn.classList.remove('dis-none');
   imgArea.classList.remove('dis-none');
-  imgRotate.play();
   closeLyrics.classList.add('dis-none');
 })
 
